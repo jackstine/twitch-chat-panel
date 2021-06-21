@@ -20,8 +20,9 @@ module.exports = {
 ```
 3. Can get the OAUTH at https://twitchapps.com/tmi/
 4. Can get Client ID and Client Secret when you register at https://dev.twitch.tv/console.  Register an app with URL http://localhost if you plan to keep it locahost only (TAKE HEED OF WARNING).
-3. yarn 
-4. yarn start
+3. `yarn`
+4. `yarn start`
+5. set up in OBS as a Browser Source, Currently 600 Width and 800 Height. Use Custom CSS `body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }` to make it transparent.
 
 
 ## Commands
