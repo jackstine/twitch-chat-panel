@@ -82,3 +82,4 @@ src/config/config.development.js
 src/config/config.prod.js
 yarn.lock
 package-lock.json
+.play

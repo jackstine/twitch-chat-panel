@@ -5,7 +5,7 @@ Show Emotes and Giphys in a nice chat overlay. (More work to come soon)
 
 ## Setup
 1. Fork the Repo
-2. set up the config.development.js file with the following schema
+2. set up the `src/config/config.development.js` file with the following schema
 ```
 module.exports = {
   TWITCH_OAUTH: "Your Twitch OAUTH Key",
@@ -15,7 +15,7 @@ module.exports = {
   YOUR_CHANNEL: "#channel_name_that_you_stream_on",
   BOT_PROFILE_IMAGE: 'url to profile image',
   BOT_HELLO_MESSAGE: 'the message you want your bot to say every 15 minutes',
-  BOT_REPLY_SPEECH: `Hey @${username} ${reply_speech}`
+  BOT_REPLY_SPEECH: `reply speech` // outputs to chat Hey @${username} ${reply_speech}
 }
 ```
 3. Can get the OAUTH at https://twitchapps.com/tmi/

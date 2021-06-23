@@ -140,6 +140,7 @@ const addMessage = function (messageObj) {
 	let userId = messageObj.tags["user-id"];
 	if (!userId) {
 		// TODO refactor
+    // First time that the bot make a message
 		let ds = messageObj.tags["display-name"];
 		let isBot = ds === config.BOT_NAME;
 		if (isBot) {
