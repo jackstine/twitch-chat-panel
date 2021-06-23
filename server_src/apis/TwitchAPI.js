@@ -1,6 +1,7 @@
 // https://dev.twitch.tv/docs/api/reference#get-users
 // const WebAPI = require('./WebAPI')
-import WebAPI from "./WebAPI"
+const WebAPI = require('./WebAPI')
+
 
 class TwitchAPI extends WebAPI {
   constructor () {
@@ -37,4 +38,4 @@ class TwitchAPI extends WebAPI {
   }
 }
 
-export default new TwitchAPI()
+module.exports = new TwitchAPI()

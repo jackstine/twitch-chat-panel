@@ -5,25 +5,24 @@ Show Emotes and Giphys in a nice chat overlay. (More work to come soon)
 
 ## Setup
 1. Fork the Repo
-2. set up the `src/config/config.development.js` file with the following schema
+2. set up the `.env` file with the following schema
 ```
-module.exports = {
-  TWITCH_OAUTH: "Your Twitch OAUTH Key",
-  TWITCH_CLIENT_ID: "Your Twitch Client ID",
-  TWITCH_CLIENT_SECRET: "Your Twitch Client Secret",
-  BOT_NAME: "botname",
-  YOUR_CHANNEL: "#channel_name_that_you_stream_on",
-  BOT_PROFILE_IMAGE: 'url to profile image',
-  BOT_HELLO_MESSAGE: 'the message you want your bot to say every 15 minutes',
-  BOT_REPLY_SPEECH: `reply speech` // outputs to chat Hey @${username} ${reply_speech}
-}
+TWITCH_OAUTH="Your Twitch OAUTH Key"
+TWITCH_CLIENT_ID"=Your Twitch Client ID"
+TWITCH_CLIENT_SECRET="Your Twitch Client Secret"
+BOT_NAME="botname"
+YOUR_CHANNEL="#channel_name_that_you_stream_on"
+BOT_PROFILE_IMAGE='url to profile image'
+BOT_HELLO_MESSAGE='the message you want your bot to say every 15 minutes'
+BOT_REPLY_SPEECH=`reply speech` // outputs to chat Hey @${username} ${reply_speech}
 ```
 3. Can get the OAUTH at https://twitchapps.com/tmi/
 4. Can get Client ID and Client Secret when you register at https://dev.twitch.tv/console.  Register an app with URL http://localhost if you plan to keep it locahost only (TAKE HEED OF WARNING).
 3. `yarn`
 4. `yarn start`
+6. `npm run dev-server`
 5. set up in OBS as a Browser Source, Currently 600 Width and 800 Height. Use Custom CSS `body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }` to make it transparent.
-
+-- if you want to change the Browser Source size and demisions you will need to change the CSS as well. The css is in `src/index.css`.
 
 ## Commands
 | Command | Description |

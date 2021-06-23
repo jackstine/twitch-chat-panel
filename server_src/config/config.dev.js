@@ -1,0 +1,11 @@
+module.exports = {
+  TWITCH_OAUTH: process.env.TWITCH_OAUTH,
+  TWITCH_CLIENT_ID: process.env.TWITCH_CLIENT_ID,
+  TWITCH_CLIENT_SECRET: process.env.TWITCH_CLIENT_SECRET,
+  BOT_NAME: process.env.BOT_NAME,
+  YOUR_CHANNEL: process.env.YOUR_CHANNEL,
+  BOT_PROFILE_IMAGE: process.env.BOT_PROFILE_IMAGE,
+  BOT_HELLO_MESSAGE: process.env.BOT_HELLO_MESSAGE,
+  BOT_REPLY_SPEECH: process.env.BOT_REPLY_SPEECH, 
+  port: 8181
+}

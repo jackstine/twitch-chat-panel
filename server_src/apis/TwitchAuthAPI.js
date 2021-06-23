@@ -1,6 +1,5 @@
-import config from '../config'
-import WebAPI from './WebAPI'
-// const WebAPI = require('./WebAPI')
+const config = require('../config')
+const WebAPI  = require('./WebAPI')
 
 class TwitchAuthAPI extends WebAPI {
   constructor () {
@@ -27,4 +26,4 @@ class TwitchAuthAPI extends WebAPI {
   }
 }
 
-export default new TwitchAuthAPI()
+module.exports = new TwitchAuthAPI()

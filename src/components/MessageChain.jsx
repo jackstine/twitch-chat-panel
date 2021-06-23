@@ -1,3 +1,5 @@
+import Giphy from './Giphy'
+
 const MessageChain = function (props) {
   let messageChain = props.messageChain;
   let Chain = [];
@@ -13,12 +15,7 @@ const MessageChain = function (props) {
         />
       );
     } else if (m.type === "giph") {
-      Chain.push(
-        <img
-          className="message-chain-giphy"
-          src={`https://media.giphy.com/media/${m.data}/giphy.gif`}
-        />
-      );
+      Chain.push(<Giphy data={m.data} />);
     }
   }
   return Chain;

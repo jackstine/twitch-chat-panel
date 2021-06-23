@@ -1,5 +1,5 @@
 const data = require("./data");
-const TwitchAPI = require("../apis/TwitchAPI").default;
+const TwitchAPI = require("../apis/TwitchAPI");
 const config = require('../config')
 
 let helloCommand = function (client, channel, tags, message) {

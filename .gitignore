@@ -83,3 +83,4 @@ src/config/config.prod.js
 yarn.lock
 package-lock.json
 .play
+.env

@@ -1,31 +1,15 @@
 import { useEffect, useState } from 'react'
-import data from '../tmi/data'
 import ChatBox from './ChatBox'
+import TwitchBotAPI from '../apis/TwitchBotAPI'
 
 /**
- * 166 x 261
  * @param {} Component 
  * @returns 
  */
 
 const addData = function (Component) {
-  let getData = () => {
-    let currentProfile = null
-    let currentMessageStack = []
-    for (let m of data.messages) {
-      let userId = m.user.id
-      if (currentProfile && currentProfile === userId) {
-        currentMessageStack[currentMessageStack.length - 1].messages.push(m)
-      } else {
-        currentMessageStack.push({
-          user: m.user,
-          id: `${m.user.id}-${m.timestamp.getTime()}`,
-          messages: [m]
-        })
-        currentProfile = userId
-      }
-    }
-    return currentMessageStack
+  let getData = async () => {
+    return await TwitchBotAPI.getMessages()
   }
   return (props) => {
     return <Component getData={getData} {...props}/>
@@ -35,10 +19,10 @@ const addData = function (Component) {
 const ChatPanel = function (props) {
   let [messages, setMessages] = useState([])
   useEffect(() => {
-    let i = setInterval(() => {
-      let data = props.getData()
+    let i = setInterval(async () => {
+      let data = await props.getData()
       setMessages(data)
-    }, 2000)
+    }, 6000)
     // left off
     let setScroll = setInterval(() => {
       let boxes = document.getElementsByClassName('chat-box')
