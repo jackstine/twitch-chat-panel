@@ -1,17 +1,13 @@
 const Giphy = function (props) {
   let data = props.data
-  let originalsRex = /https:\/\/giphy.com\/clips\/originals-(\w*)/
-  let regex =/https:\/\/media.giphy.com\/media\/(\w*)\/giphy.gif/ 
-  let regs = [originalsRex, regex]
-  for (let r of regs) {
-    let regInfo = data.match(r)
-    if (regInfo && regInfo[1].length <= 20) {
-      data = regInfo[1]
-      break
-    } else if (regInfo && regInfo[1].length > 20) {
-      console.log(regInfo)
-      console.error('Reg ex is greater than 20 characters')
-    }
+  // the regexes are stashed at https://regex101.com/r/iLZO9Z/1
+  let urlRegex = /https{0,1}:\/\/.*[\/-]{1}(\w{6,20})/
+  let regInfo = data.match(urlRegex)
+  if (regInfo && regInfo[1].length <= 20) {
+    data = regInfo[1]
+  } else if (regInfo && regInfo[1].length > 20) {
+    console.log(regInfo)
+    console.error('Reg ex is greater than 20 characters')
   }
   if (data.includes('https')) {
     console.error(data)

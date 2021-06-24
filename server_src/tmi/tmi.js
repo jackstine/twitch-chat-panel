@@ -22,11 +22,16 @@ const create = function () {
 
 	client.connect();
 
+  const botSaysHey = function (override) {
+    let message = override || config.BOT_HELLO_MESSAGE;
+    client.say(CHANNEL, message);
+  }
+
 	const createBot = function (client) {
 		let TIME_FOR_REPEAT_MESSAGES = 15 * 60 * 1000; // 15 minutes
+    botSaysHey('!giphy https://media.giphy.com/media/3ornk57KwDXf81rjWM/giphy.gif')
 		setInterval(() => {
-			let message = config.BOT_HELLO_MESSAGE;
-			client.say(CHANNEL, message);
+      botSaysHey()
 		}, TIME_FOR_REPEAT_MESSAGES);
 
 		client.on("message", (channel, tags, message, self) => {

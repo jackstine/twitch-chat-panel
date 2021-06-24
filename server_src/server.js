@@ -28,9 +28,14 @@ app.get('/messages', (req, res) => {
     for (let m of data.messages) {
       let userId = m.user.id
       // stacks all the messages per user, if they have contingeous messages un interupted
-      if (currentProfile && currentProfile === userId) {
+      // this will ensure that the bot only shows 1 message at a time
+      // TODO the bot will cannot show 2 messages that are different
+      let currentProfileIsCurrentMessagesProfile = currentProfile && currentProfile === userId
+      ds = m.tags["display-name"];
+      let isBot = ds === config.BOT_NAME;
+      if (currentProfileIsCurrentMessagesProfile && !isBot) {
         currentMessageStack[currentMessageStack.length - 1].messages.push(m)
-      } else {
+      } else if (!currentProfileIsCurrentMessagesProfile) {
         currentMessageStack.push({
           user: m.user,
           id: `${m.user.id}-${m.timestamp.getTime()}`,

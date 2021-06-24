@@ -7,7 +7,7 @@ let helloCommand = function (client, channel, tags, message) {
 };
 
 let sayCommands = function (client, channel, tags, message) {
-	client.say(channel, "!hello is the only command I know 😔");
+	client.say(channel, "https://github.com/jackstine/twitch-chat-panel#commands");
 };
 
 let giphyCommand = function (client, channel, tags, message) {
@@ -138,13 +138,10 @@ const addMessage = function (messageObj) {
 	 * Then add the users Informaiton to the Message Object
 	 */
 	let userId = messageObj.tags["user-id"];
+  let ds = messageObj.tags["display-name"];
+  let isBot = ds === config.BOT_NAME;
 	if (!userId) {
-		// TODO refactor
-    // First time that the bot make a message
-		let ds = messageObj.tags["display-name"];
-		let isBot = ds === config.BOT_NAME;
 		if (isBot) {
-			// TODO add anything else...
 			data.users[ds] = {
 				id: ds,
 				profile_image_url: config.BOT_PROFILE_IMAGE,
@@ -152,7 +149,7 @@ const addMessage = function (messageObj) {
 			};
 			userId = ds;
 		}
-	}
+  }
 	if (!data.users[userId]) {
 		TwitchAPI.getUsers(userId).then((userData) => {
 			let user = userData.data[0];

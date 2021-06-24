@@ -2,25 +2,11 @@ import { useEffect, useState } from 'react'
 import ChatBox from './ChatBox'
 import TwitchBotAPI from '../apis/TwitchBotAPI'
 
-/**
- * @param {} Component 
- * @returns 
- */
-
-const addData = function (Component) {
-  let getData = async () => {
-    return await TwitchBotAPI.getMessages()
-  }
-  return (props) => {
-    return <Component getData={getData} {...props}/>
-  }
-}
-
-const ChatPanel = function (props) {
+const ChatPanel = function () {
   let [messages, setMessages] = useState([])
   useEffect(() => {
     let i = setInterval(async () => {
-      let data = await props.getData()
+      let data = await TwitchBotAPI.getMessages()
       setMessages(data)
     }, 6000)
     // left off
@@ -34,7 +20,7 @@ const ChatPanel = function (props) {
       clearInterval(i);
       clearInterval(setScroll);
     }
-  }, [props.getData])
+  }, [])
   let OutputComponent = messages.map(user => <ChatBox key={`${user.id}-${user.messages.length}`} user={user.user} messages={user.messages}/>)
   return (
     <div id="chat_panel"> 
@@ -43,4 +29,4 @@ const ChatPanel = function (props) {
   )
 }
 
-export default addData(ChatPanel)
+export default ChatPanel

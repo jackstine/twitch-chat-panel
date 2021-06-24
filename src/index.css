@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap%27');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
@@ -12,7 +14,7 @@ code {
 }
 
 .chat-box {
-  font-family: "Courier New", monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .profile-box {
@@ -21,9 +23,10 @@ code {
   padding-top: 5px;
   scroll-padding-top: auto;
   /* background-color: magenta; */
-  background-color: rgba(255, 0, 255, 0);
+  /* background-color: rgba(255, 0, 255, 0); */
+  /* background-color: rgba(40, 55, 88, 0.486); */
 
-  border: 0.001em solid black;
+  border: 0.001em solid rgb(0, 0, 0);
   padding-left: 3px;
 }
 
@@ -35,16 +38,19 @@ code {
   float: left;
   margin-right: 10px;
   margin-top: 2px;
+  border-radius: 10px;
 }
 
 .profile-box-username {
   /* font-size: 0.5rem; */
   font-size: 2.2rem;
   background-color: white; /* added in for browser source*/
+  padding-left: 15px;
   padding-right: 15px; /* added in for browser source */
   width: fit-content;
   font-weight: 600;
   margin-left: 2px;
+  border-radius: 10px;
 }
 
 .chat-box-messages {
@@ -62,6 +68,7 @@ code {
   margin-bottom: 2px;
   margin-top: 1px;
   color: white;
+  text-shadow: 4px 4px black;
 }
 
 .message-chain-emote-single {
@@ -81,6 +88,6 @@ code {
 .message-chain-giphy {
   /* width: 5rem;
   height: 5rem; */
-  width: 18rem;
-  height: 18rem;
+  max-width: 18rem;
+  max-height: 18rem;
 }
