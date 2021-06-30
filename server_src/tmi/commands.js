@@ -210,7 +210,7 @@ const onMessageCommand = function (client, channel, tags, message) {
 const commandOnJoin = function (client, channel, username) {
 	if (!data.firstTimers.has(username)) {
 		// maybe after a certian amount of time message the person. in the chat
-		data.firstTimers.add(username);
+		data.firstTimers.add({username, joined: new Date()});
 	}
 };
 

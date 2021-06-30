@@ -1,7 +1,7 @@
 const Giphy = function (props) {
   let data = props.data
   // the regexes are stashed at https://regex101.com/r/iLZO9Z/1
-  let urlRegex = /https{0,1}:\/\/.*[\/-]{1}(\w{6,20})/
+  let urlRegex = /https{0,1}:\/\/.*[\/-]{1}(\w{6,20})([\/]|$)/
   let regInfo = data.match(urlRegex)
   if (regInfo && regInfo[1].length <= 20) {
     data = regInfo[1]
