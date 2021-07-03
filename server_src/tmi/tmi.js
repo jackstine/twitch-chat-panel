@@ -26,18 +26,6 @@ const create = function () {
     let message = override || config.BOT_HELLO_MESSAGE;
     client.say(CHANNEL, message);
   }
-
-// setInterval(() => {
-//   let now = new Date()
-//   for (let u of data.joined) {
-//     let hasNotSentMessageInTime = u.joined.joined.getTime() + TIME_IF_NOT_SENT_MESSAGE > now
-    
-//     if () {
-
-//     } 
-//   }
-// })
-
 	const createBot = function (client) {
 		let TIME_FOR_REPEAT_MESSAGES = 15 * 60 * 1000; // 15 minutes
     botSaysHey('!giphy https://media.giphy.com/media/3ornk57KwDXf81rjWM/giphy.gif')
@@ -60,19 +48,6 @@ const create = function () {
 		}); // END OF MESSAGE
 		client.on("join", (channel, username, self) => {
 			commandOnJoin(client, channel, username);
-      /**
-       * if a person joins, we add them to a group
-       * if they message, we set a flag to true
-       * if they dont message, we say something....
-       * setTimeout(() => {
-       *  for u in users:
-       *    let needToSendMessage = u.timeJoined.getTime() + (30 * 60 * 1000)
-       *    if (!u.hasSentMessage || !u.introduced && needToSendMessage) {
-       *      saysomethingtothem
-       *      
-       *    }
-       * })
-       */
 		}); // END OF JOIN
 		client.on("part", (channel, username, self) => {
 			commandOnPart(client, channel, username);
@@ -104,19 +79,3 @@ module.exports = {
 		data.emotes = emotes;
 	},
 };
-/**
- * I want a bot
- * I want to talk to people
- * It will only talk back
- *
- * games
- *  find the number
- *
- *
- * songs
- *  add to a spotify playlist
- *
- *
- * use join to say hello to people intro
- *
- */
