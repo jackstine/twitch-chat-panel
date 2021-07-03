@@ -12,7 +12,10 @@ const ProfileBox = function (props) {
       </div>
       <div className="chat-box-messages">
         <img src={props.image} className="profile-box-image"/>
-        {NewMessages}
+        {/* TODO need to fix so that the spans over the edge of the image */}
+        <span className="chat-box-message-span">
+          {NewMessages}
+        </span>
       </div>
   </div>
   )

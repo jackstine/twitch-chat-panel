@@ -12,8 +12,9 @@ const Giphy = function (props) {
   if (data.includes('https')) {
     console.error(data)
   }
+  let c = props.large ? "message-chain-giphy-large" : "message-chain-giphy"
   return (<img
-    className="message-chain-giphy"
+    className={c}
     src={`https://media.giphy.com/media/${data}/giphy.gif`}
   />)
 }

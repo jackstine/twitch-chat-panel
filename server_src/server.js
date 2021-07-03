@@ -49,6 +49,18 @@ app.get('/messages', (req, res) => {
   res.send(getData())
 });
 
+app.get('/special/giphy', (req, res) => {
+  console.log(data.giphy_urls)
+  if (data.giphy_urls.length > 0) {
+    let sendInfo = data.giphy_urls[0]
+    data.giphy_urls = data.giphy_urls.splice(1)
+    console.log(sendInfo)
+    res.send({data: sendInfo})
+  } else {
+    res.send({data: null})
+  }
+})
+
 const httpServer = http.createServer(app);
 
 const SERVER_PORT = config.port;

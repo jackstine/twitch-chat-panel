@@ -3,6 +3,7 @@ module.exports = {
   firstTimers: new Set(),
   users: {},
   totalMessages: 0,
-  emotes: []
+  emotes: [],
+  giphy_urls: [] // will act like a queue
 }
 

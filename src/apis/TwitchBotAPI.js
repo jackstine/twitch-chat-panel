@@ -12,6 +12,10 @@ class TwitchBotAPI extends WebAPI {
   getMessages () {
     return this.__get('messages')
   }
+
+  getSpecialGiph () {
+    return this.__get('special/giphy')
+  }
 }
 
 export default new TwitchBotAPI()

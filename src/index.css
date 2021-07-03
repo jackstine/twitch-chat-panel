@@ -63,6 +63,12 @@ code {
   margin-top: 1px;
 }
 
+.chat-box-message-span {
+  overflow-y:auto;
+  max-height: 70px;
+  display: contents;
+}
+
 .chat-box-messages-message {
   background-color: #df55f100;
   margin-bottom: 2px;
@@ -90,4 +96,9 @@ code {
   height: 5rem; */
   max-width: 18rem;
   max-height: 18rem;
+}
+
+.message-chain-giphy-large {
+  max-width: 36rem;
+  max-height: 36rem;
 }
