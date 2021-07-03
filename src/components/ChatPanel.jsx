@@ -29,7 +29,7 @@ const [messages, setMessages] = useState([])
     }
   }, [])
 
-  let OutputComponent = messages.map(user => <ChatBox key={`${user.id}-${user.messages.length}`} user={user.user} messages={user.messages}/>)
+  let OutputComponent = messages.map(user => <ChatBox key={`${user.id}-${user.messages.length}`} user={user.user} messages={user.messages} badges={user.badges}/>)
   return (
     <div id="chat_panel"> 
       {OutputComponent}

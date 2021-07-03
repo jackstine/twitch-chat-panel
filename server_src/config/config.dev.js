@@ -7,5 +7,5 @@ module.exports = {
   BOT_PROFILE_IMAGE: process.env.BOT_PROFILE_IMAGE,
   BOT_HELLO_MESSAGE: process.env.BOT_HELLO_MESSAGE,
   BOT_REPLY_SPEECH: process.env.BOT_REPLY_SPEECH, 
-  port: 8181
+  port: 8183
 }

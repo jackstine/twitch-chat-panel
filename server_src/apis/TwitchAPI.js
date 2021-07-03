@@ -36,6 +36,10 @@ class TwitchAPI extends WebAPI {
   getChannel(id) {
     return this.__get(`channels?broadcaster_id=${id}`)
   }
+
+  getBadges () {
+    return this.__get('chat/badges/global')
+  }
 }
 
 module.exports = new TwitchAPI()

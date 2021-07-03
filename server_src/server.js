@@ -5,8 +5,13 @@ const data = require('./tmi/data')
 const {onStartUp} = require('./onstartup')
 const config = require('./config')
 const bodyParser = require("body-parser");
+const TwitchAPI = require('./apis/TwitchAPI')
 
-
+setTimeout(() => {
+  TwitchAPI.getBadges().then(resp => {
+    data.badges = resp.data
+  })
+}, 2000)
 
 process.on("unhandledRejection", function (err) {
   console.error(err);
@@ -59,6 +64,12 @@ app.get('/special/giphy', (req, res) => {
   } else {
     res.send({data: null})
   }
+})
+
+app.get('/badges', (req, res) => {
+  TwitchAPI.getBadges().then(resp => {
+    res.send(resp.data)
+  })
 })
 
 const httpServer = http.createServer(app);

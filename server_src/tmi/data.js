@@ -4,6 +4,7 @@ module.exports = {
   users: {},
   totalMessages: 0,
   emotes: [],
-  giphy_urls: [] // will act like a queue
+  giphy_urls: [], // will act like a queue,
+  badges: []
 }
 

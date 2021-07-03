@@ -1,7 +1,7 @@
 const TwitchAPI = require("../apis/TwitchAPI");
 const config = require('../config')
 const data = require("./data");
-const {customRewardIsSpecial} = require('./customRewards')
+const {customRewardIsSpecial} = require('./customRewards');
 
 
 /**
@@ -130,6 +130,39 @@ const parseMessage = function (messageObj) {
 	};
 };
 
+const BADGES = [ "image_url_4x", "image_url_2x", "image_url_1x"]
+const getBadges = function (tags) {
+  let badges = tags.badges
+  let userBadges = Object.keys(badges).map((badgeKey) => { 
+    // x is the set of all the badges in the global state
+    // only getting the first set
+    let sets = data.badges.filter(e => {
+      if (!e.set_id) {
+        return false
+      } else {
+        return e.set_id === badgeKey
+      }
+    })
+    if (sets.length > 0) {
+      // get the version from the badge
+      return sets[0].versions.filter(e => e.id === badges[badgeKey].toString())
+    } else {
+      return null
+    }
+  }).map(el => el[0]) // last step to return the badge object
+  let url_of_badges = userBadges.map(el => {
+    if (el) {
+      // iterate throught the images sizes starting with the largest
+      for (let b of BADGES) {
+        if (el[b]) {
+          return el[b]
+        }
+      }
+    } // filter out the undefined badges
+  }).filter(el => Boolean(el))
+  return url_of_badges
+}
+
 const addMessage = function (messageObj) {
 	/**
 	 * if data.users has the user just add the message
@@ -152,8 +185,10 @@ const addMessage = function (messageObj) {
   }
 	if (!data.users[userId]) {
 		TwitchAPI.getUsers(userId).then((userData) => {
+      let url_of_badges = getBadges(messageObj.tags) 
 			let user = userData.data[0];
 			data.users[user.id] = user;
+      user.badges = url_of_badges;
 			__addMessage(messageObj, user);
 		});
 	} else {
