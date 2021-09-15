@@ -5,7 +5,7 @@ const ProfileBox = function (props) {
     'color': props.tags.color
   }
   let NewMessages = props.messages.map(m => <div key={m.id} className="chat-box-messages-message"><MessageChain {...m.messageChain}/></div>)
-  let badgeImages = props.badges.map(url => <img src={url} className="profile-badge"/>)
+  let badgeImages = props.badges ? props.badges.map(url => <img src={url} className="profile-badge"/>) : null
   return (
   <div className="profile-box">
       <div className="profile-box-username" style={usernameStyles}>

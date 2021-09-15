@@ -18,6 +18,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "set-giphy": "export REACT_APP_GIPHY='$1'",
     "dev-server": "export NODE_ENV=dev && nodemon server_src/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",

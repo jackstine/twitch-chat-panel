@@ -113,4 +113,8 @@ code {
 .message-chain-giphy-large {
   max-width: 30rem;
   max-height: 30rem;
+  min-width: 15rem;
+  min-height: 15rem;
+  display: block;
+  margin-left: auto;
 }
